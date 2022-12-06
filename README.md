@@ -22,7 +22,7 @@ Modele2
 
 ```python
 class FeatureSetting:
-    def __init__(self, inputNotesList):
+    def __init__(self, inputNotesObject):
         return _
     def analyzer(self):
         return Result
@@ -32,9 +32,9 @@ class FeatureSetting:
         return rhythm
 ```
 
-The class name is **FeatureSetting**. It analyzes the input notes and sets the key and rhythm of the music.
+The class name is **FeatureSetting**. It analyzes the input notes Object and sets the key and rhythm of the music.
 
-- Store the input notes from the music player as initial.
+- Store the input notes and the durationRatio from the music player as initial.
 - Analyze and Extract the features.
 - Using based information to set key and rhythm.
 - ### Functions
