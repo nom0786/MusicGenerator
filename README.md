@@ -12,9 +12,36 @@ Noman Mohammad & Nyx Zhang
   - Generate a melody based on the three notes and chords.
   - Mix the results into an audio file with the metadata.
 
+
+
+Sub-Packages1 - Music Player
+
+Module 1 - Interface generation
+
+▪ Init function: Upon calling the class the various attributes for each module of interface will be set
+
+▪ NoteSelection: This will allow the user to select
+
+▪ Play: The play functionality for the button using the generated music
+
+▪ Pause: The pause functionality for the button using the generated music
+
+▪ Generate: This function will call functions from the Jam module to turn the selected notes into music
+
 # Sub-Packages1 - Music Player
-## Module1
-Modele2
+## Module1 - Interface generation
+- ### Functions
+  - Init function: Upon calling the class the various attributes for each module of interface will be set
+  - NoteSelection: This will allow the user to select
+  - Play: The play functionality for the button using the generated music
+  - Pause: The pause functionality for the button using the generated music
+  - Generate: This function will call functions from the Jam module to turn the selected notes into music
+  
+## Module1 - Note generation
+- ### Functions
+  -  SetNote will assign note values to the object
+  -  GetNote will retrieve the note values from the object
+  -  Duration will return a ratio of the elapsed time between note selection approximated to the nearest set value
 
 # Sub-Packages2 - Jam
 ## Module1 - FeatureSetting
@@ -45,7 +72,7 @@ The class name is **FeatureSetting**. It analyzes the input notes Object and set
   - Function 3: rhythm\_generator
     - Using the features to set the rhythm of the music
 
-## Modele2 - Generator
+## Module2 - Generator
 - ### Class Introduction
 ```python
 class Generator(FeatureSetting):
