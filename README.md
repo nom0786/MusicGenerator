@@ -30,8 +30,8 @@ The class name is MusicInterface. Its main purpose is to create the underlying G
   	- Will act upon the play button and play the generated ‘mid’ file from our MusicJam.py module.  Also calls our notes.py module to clear notes object upon music generation and set status on the main label
   
 ## Module2 - Note generation
+The class name is Notes. Its main purpose is to parse the data coming from the user. This includes duration, speed and error checking for expected note count. 
 - ### Functions
-The class name is Notes. Its main purpose is to parse the data coming from the user. This includes duration, speed and error checking for expected note count. - ### Functions
   - Function 1: Init function
   	- Sets empty lists for notes and time
   - Function 2:  getDuration
