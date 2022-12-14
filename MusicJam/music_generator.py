@@ -7,8 +7,8 @@ import os
 # color refer: https://xdevs.com/guide/color_serial/
 
 class MusicGenerator(MusicAnalyzor):
-    def __init__(self, note_object,num_bars):
-        MusicAnalyzor.__init__(self, note_object, num_bars)
+    def __init__(self, note_object,num_bars,bpm):
+        MusicAnalyzor.__init__(self, note_object, num_bars,bpm)
         self.Key = self.key_setting()
         tm1 = time.time()
         print("{0}rhythm beats{1}: start generating...".format('\033[1m','\033[0m'),end="")
@@ -79,7 +79,7 @@ class MusicGenerator(MusicAnalyzor):
 
     def mix_melody_chords(self):
         s = stream.Score()
-        mm1 = tempo.MetronomeMark(number=88)
+        mm1 = tempo.MetronomeMark(number=self.bpm)
         # create melody part of the score
         p_melody = stream.Part()
         p_melody.append(mm1)

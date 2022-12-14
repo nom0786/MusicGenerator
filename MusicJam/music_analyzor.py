@@ -3,7 +3,7 @@ import numpy as np
 import random
 
 class MusicAnalyzor:
-    def __init__(self, note_object, num_bars):
+    def __init__(self, note_object, num_bars, bpm=75):
         self.note_num = {
             '0':['C'], '1':['C#','Db'], '2':['D'], '3':['D#','Eb'], '4':['E'],
             '5':['F'], '6':['F#','Gb'],
@@ -44,6 +44,7 @@ class MusicAnalyzor:
             'bVII':['']
             }
         self.num_bars= num_bars
+        self.bpm = bpm
 
     def key_analyze(self):
         '''Transfer notes to note_nums'''
