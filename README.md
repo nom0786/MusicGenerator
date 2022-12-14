@@ -12,3 +12,184 @@ Noman Mohammad & Nyx Zhang
   - Generate a melody based on the three notes and chords.
   - Mix the results into an audio file with the metadata.
 
+<<<<<<< HEAD
+=======
+# Sub-Packages1 - Music Player
+## Module1 - Interface generation
+- ### Functions
+  - Init function: Upon calling the class the various attributes for each module of interface will be set
+  - NoteSelection: This will allow the user to select
+  - Play: The play functionality for the button using the generated music
+  - Pause: The pause functionality for the button using the generated music
+  - Generate: This function will call functions from the Jam module to turn the selected notes into music
+  
+## Module1 - Note generation
+- ### Functions
+  -  SetNote will assign note values to the object
+  -  GetNote will retrieve the note values from the object
+  -  Duration will return a ratio of the elapsed time between note selection approximated to the nearest set value
+
+# Sub-Packages2 - Jam
+## Module1 - FeatureSetting
+- ### Class Introduction
+
+```python
+class FeatureSetting:
+    def __init__(self, inputNotesObject):
+        return _
+    def analyzer(self):
+        return Result
+    def key_generator(self):
+        return key
+    def rhythm_generator(self):
+        return rhythm
+```
+
+The class name is **FeatureSetting**. It analyzes the input notes Object and sets the key and rhythm of the music.
+
+- Store the input notes and the durationRatio from the music player as initial.
+- Analyze and Extract the features.
+- Using based information to set key and rhythm.
+- ### Functions
+  - Function 1: analyzer
+    - Using Empirical Probability and Music theory to analyze possible music features.
+  - Function 2: key\_generator
+    - Using the features to set the key of the music
+  - Function 3: rhythm\_generator
+    - Using the features to set the rhythm of the music
+
+## Module2 - Generator
+- ### Class Introduction
+```python
+class Generator(FeatureSetting):
+    def __init__(self, key, rhythm):
+        return _
+    def melody_generator(self):
+        return melodyStream
+    def chords_generator(self):
+        return chordsStream
+    def mix_melody_chords(self)
+        return audio,metadata
+```
+
+The class name is **Generator**. It inherits the **FeatureSetting** class
+
+- Set all the parent class features as initial.
+- The primary model that generates the music.
+- Output the music audio, music score picture, and other metadata to the music player.
+- ### Functions
+  - Function 1: analyzer
+
+Using models to generate the melody, which is a stream of notes.
+
+- Function 2: key\_generator
+  - Using models and features from the parent class to generate a stream of chords.
+- Function 3: rhythm\_generator
+  - Mix the stream of notes and stream of chords. 
+  - Mix the score of the music.
+  - Return the chords, score, and other metadata.
+
+```json
+metadata_sample = 
+{
+   // beats per minute
+   // default and flexible
+   "bpm":111,
+   //  the major or minor scale around which a piece of music revolves
+   //  default and fixed
+   "Key":"C",
+   // rhythmic pattern constituted by the grouping of basic temporal units, called beats, into regular measures, or bars
+   // default and fixed
+   "meter":"4/4",
+   // music genre: such as Blues, Jazz, Metal.
+   // default and fixed
+   "genre":"pop",
+   // chords of music melody in this key
+   // model generated the whole melody chords divided by the bars.
+   "chords":[
+      {
+      	// chords
+         "chords":[
+            "C",
+            "G",
+            "Am",
+            "B-"
+         ],
+         // Offset of the chord in the unit beat
+         "chordRythm":[
+            "1",
+            "2",
+            "3",
+            "4"
+         ]
+      },
+      {
+         "chords":[
+            "G",
+            "A",
+            "C",
+            "D"
+         ],
+         "chordRythm":[
+            "1",
+            "2",
+            "3",
+            "4"
+         ]
+      }
+   ],
+   // notes of music melody in this key
+   // user random input several notes, then model generated the whole melody notes divided by the bars.
+   "notes":[
+      {
+      	// notes
+         "notes":[
+            "C",
+            "E",
+            "A",
+            "G",
+            "C",
+            "D",
+            "F",
+            "D"
+         ],
+         // Offset of the notes in the unit beat
+         "notesRythm":[
+            "0.25",
+            "0.25",
+            "0.125",
+            "0.75",
+            "1",
+            "0.25",
+            "0.5",
+            "1"
+         ]
+      },
+      {
+         "notes":[
+            "G",
+            "A",
+            "F",
+            "G",
+            "C",
+            "D",
+            "G",
+            "D"
+         ],
+         "notesRythm":[
+            "0.75",
+            "1",
+            "0.5",
+            "0.25",
+            "0.5",
+            "1",
+            "0.5",
+            "1"
+         ]
+      }
+   ]
+}
+
+
+```
+>>>>>>> main
