@@ -30,9 +30,9 @@ class MusicAnalyzor:
         self.meter = '4/4'
         self.chordPgsDgr = [
             ['I','IV','V','I'],['I','IV','V','V'],['I','IV','vi','V'],['I','V','vi','IV'],['I','V','vi','iii'],['I','vi','IV','V'],
-            ['ii','V','I','I'],['ii','V','I','vi'],
-            ['IV','I','IV','V'],
-            ['vi','IV','I','V']
+            ['ii','V','I','I'],['ii','V','I','vi'],['ii','vi','I','iii'],
+            ['IV','I','IV','V'],['IV','V','I','vi'],['IV','II','V','I'],
+            ['vi','IV','I','V'],['vi','I','II','V'],['vi','I','IV','V']
             ]
         self.dgrKindMap = {
             'I':['','7','9','6'],
