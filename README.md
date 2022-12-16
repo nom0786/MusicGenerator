@@ -1,6 +1,8 @@
 # DATA533 - Project Doc
 Noman Mohammad & Nyx Zhang
 
+check at: https://github.com/nom0786/DATA533-MusicGenerator/tree/main/MusicJam/readme.pdf
+
 # Introduction
 - ### Music Player - Noman
   - Users can randomly choose three notes of their choice 
