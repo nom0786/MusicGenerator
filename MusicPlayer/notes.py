@@ -28,6 +28,15 @@ class notes:
         
     def getNotes(self):
         return self.notes
+
+    #convert number value to fraction
+    def convertDuration(self, duration):
+        if duration == 1:
+            return '1'
+        elif duration == 0.5:
+            return '1/2'
+        else:
+            return '2/1'
         
             
     #takes in the display note argument aswell (for the note display section) and set it to the emptied notelist when reset (generate)
@@ -36,6 +45,8 @@ class notes:
         self.times.clear()
         
     def getData(self):
-        duration = self.getDuration(self.times)
+        duration = self.convertDuration(self.getDuration(self.times))
         speed = self.getSpeed(self.times)
         return [self.notes, duration, speed]
+
+
