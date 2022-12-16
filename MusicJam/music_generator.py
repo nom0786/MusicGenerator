@@ -1,6 +1,5 @@
-from music_analyzor import *
+from MusicJam.music_analyzor import *
 from music21 import *
-from music21 import chord
 import time
 import os
 
