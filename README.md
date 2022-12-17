@@ -28,7 +28,7 @@ The class name is **MusicInterface**. Its main purpose is to create the underlyi
     - Will act upon the generate button. Calls our MusicJam.py module to generate music based on user input from selected keys. Also calls our notes.py module to clear       notes object upon music generation and set status on the main label
 
   - Function 9: play
-   - Will act upon the play button and play the generated ‘mid’ file from our MusicJam.py module.  Also calls our notes.py module to clear notes object upon music          generation and set status on the main label
+    - Will act upon the play button and play the generated ‘mid’ file from our MusicJam.py module.  Also calls our notes.py module to clear notes object upon music          generation and set status on the main label
 
 Module 2 - Note generation
 
@@ -43,24 +43,24 @@ The class name is **Notes**. Its main purpose is to parse the data coming from t
 
   - Function 3: addNote
 
-This function appends selected note to our initialized list along with time note was clicked so that calculation of speed and duration is possible
+    - This function appends selected note to our initialized list along with time note was clicked so that calculation of speed and duration is possible
 
 - Function 4: getSpeed
 
-This function calculates and returns the total elapsed time from first to last note click 
+    - This function calculates and returns the total elapsed time from first to last note click 
 
 
 - Function 5: getNote
 
-Returns list of notes for label update in Music player interface
+    - Returns list of notes for label update in Music player interface
 
 - Function 6: clearNotes
 
-Clears the current attributes set for class from user input. Called when music is generated/played
+  - Clears the current attributes set for class from user input. Called when music is generated/played
 
 - Function 7: getData
 
-Packages data in form accepted by MusicJam.py module to be parsed and turned into music. This returns a list of notes, speed and duration.
+  - Packages data in form accepted by MusicJam.py module to be parsed and turned into music. This returns a list of notes, speed and duration.
 
 Module2 - Note generation
 
