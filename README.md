@@ -24,11 +24,11 @@ The class name is **MusicInterface**. Its main purpose is to create the underlyi
   - Function 3 - 7 : value\_C - value\_B
     - These functions act upon a piano key click. They call a function from out notes.py module and set values for our notes class
 
-- Function 8: generate
-  - Will act upon the generate button. Calls our MusicJam.py module to generate music based on user input from selected keys. Also calls our notes.py module to clear notes object upon music generation and set status on the main label
+  - Function 8: generate
+    - Will act upon the generate button. Calls our MusicJam.py module to generate music based on user input from selected keys. Also calls our notes.py module to clear       notes object upon music generation and set status on the main label
 
-- Function 9: play
-  - Will act upon the play button and play the generated ‘mid’ file from our MusicJam.py module.  Also calls our notes.py module to clear notes object upon music generation and set status on the main label
+  - Function 9: play
+   - Will act upon the play button and play the generated ‘mid’ file from our MusicJam.py module.  Also calls our notes.py module to clear notes object upon music          generation and set status on the main label
 
 Module 2 - Note generation
 
