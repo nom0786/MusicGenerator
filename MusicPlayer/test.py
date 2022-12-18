@@ -1,12 +1,9 @@
 from tkinter import *
 from tkinter import messagebox
-from threading import Timer
 import pygame
 import time
 
-
-from MusicPlayer.notes import *
-from MusicJam.music_generator import *
+from notes import *
 
 #Global objects
 n = notes()
@@ -17,12 +14,6 @@ class MusicInterface(Frame):
         Frame.__init__(self, root)
         self.root = root
         self.initialize_interface(self.root)
-
-    def check_notes_status(notes):
-        if (len(notes) == 3):
-            return True
-        else:
-            return False
 
     def initialize_interface(self, root):
         self.root.title('Music Player')
@@ -76,35 +67,18 @@ class MusicInterface(Frame):
             notes_disp.set(n.generate_note("B", time.time()))
             sound = pygame.mixer.Sound("MusicPlayer/notes/B.wav")
             sound.play()
-
-        def scheduled_task():
-            notes_disp.set(" ")
-            n.clear_notes()
-
-        def run_scheduled_task():
-            timer = Timer(5, scheduled_task)
-            timer.start()
             
         def popup(msg):
             messagebox.showwarning("Warning!", msg)
-
-        def check_notes_status(notes):
-            if (len(notes) == 3):
-                return True
-            else:
-                return False
              
         def generate():
 #           jam = musicjam.MusicGenerator()
 #           jam.generateMusic()
 
             #checking to see whether or not 3 notes were selected before user can click generate
-            if (check_notes_status(n.get_notes())):
-    
-                # tmp = MusicGenerator(n.export_notes(),num_bars = 4,bpm=66)
-                # file = tmp.mix_melody_chords()[0]
-
-                self.music_file = 'MusicPlayer/notes/C.wav'
+            if (len(n.get_notes()) == 3):
+                #then call the pyjam module and it should return a testfile.mid 
+                self.music_file = 'test_file.mid'
                 n.clear_notes()
                 notes_disp.set("Done. Click play!")
             else:
@@ -115,14 +89,12 @@ class MusicInterface(Frame):
                 notes_disp.set("playing...")
                 sound = pygame.mixer.Sound(self.music_file)
                 sound.play()
-                #reset condition
-                self.music_file = 'none'
-                run_scheduled_task()
                 
             else:
-                #in case user clicks notes then play... prompt popup
-                # notes_disp.set(" ")
-                # n.clear_notes()
+                #in case user clicks notes then play... tell them that 
+                print(self.music_file)
+                notes_disp.set(" ")
+                n.clear_notes()
                 popup("Cannot play! No music was generated.")
 
 
@@ -180,8 +152,9 @@ class MusicInterface(Frame):
             
 
 
-def run_interface():
+def run():
     root = Tk()
     MusicInterface(root)
     root.mainloop()
 
+run()

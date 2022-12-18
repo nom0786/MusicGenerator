@@ -13,60 +13,46 @@ Noman Mohammad & Nyx Zhang
   - Mix the results into an audio file with the metadata.
 
 # Sub-Packages1 - Music Player
-Module 1 - Interface generation
+## Module 1 - Interface generation
 
-The class name is **MusicInterface**. Its main purpose is to create the underlying GUI for our program. It inherits the Frame class from the tkinter library.
+The class name is **MusicInterface**. Its main purpose is to create the underlying GUI for the program. It inherits the Frame class from the tkinter library.
 - ### Functions
-  - Function 1: Init function
-    - Calls the initialize\_interface function which is designed to create the widgets within our interface
-  - Function 2:  initialize\_interface
-    - This function will create all the widgets for our interface
-  - Function 3 - 7 : value\_C - value\_B
-    - These functions act upon a piano key click. They call a function from out notes.py module and set values for our notes class
+  - Function 1: __init__()
+    - Calls the initialize_interface function which is designed to create the widgets within our interface
+  - Function 2: initialize_interface()
+    - This function will create all the widgets for the interface
+  - Function 3 - 7 : value_C() - value_B()
+    - These functions act upon a piano key click. They call a function from the notes module and set values for our notes class
+  - Function 8: generate()
+    - Will act upon the generate button. Calls the MusicJam module to generate music based on user input from selected keys. Also calls the notes module to clear the notes object upon music generation and sets the current status in the interface
+  - Function 9: play()
+    - Will act upon the play button and play the generated ‘mid’ file from the MusicJam module. Makes a secondary call on the notes module to clear the notes object upon playing the generated music and sets the current status in the interface
+  - Function 10: check_notes_status()
+    - returns true/false whether target note count is reached 
+  - Function 11: run_interface()
+    - calls the interface class and sets the main loop to be called in main module
 
-  - Function 8: generate
-    - Will act upon the generate button. Calls our MusicJam.py module to generate music based on user input from selected keys. Also calls our notes.py module to clear       notes object upon music generation and set status on the main label
-
-  - Function 9: play
-    - Will act upon the play button and play the generated ‘mid’ file from our MusicJam.py module.  Also calls our notes.py module to clear notes object upon music          generation and set status on the main label
-
-Module 2 - Note generation
+## Module 2 - Note generation
 
 The class name is **Notes**. Its main purpose is to parse the data coming from the user. This includes duration, speed and error checking for expected note count. 
 
 - ### Functions
-  - Function 1: Init function
+  - Function 1: __init__()
     - Sets empty lists for notes and time
+  - Function 2: calculate_duration()
+    - will return a calculated ratio of the elapsed time between note selection approximated to the nearest set value 
+  - Function 3: generate_note()
+    - appends selected note to our initialized list along with the current time the note was clicked so that the future calculation of speed and duration is made possible
+  - Function 4: calculate_speed()
+    - calculates and returns the total elapsed time from first to last note click 
+  - Function 5: convert_duration()
+    - converts number value to associated fraction
+  - Function 6: clear_notes()
+    - clears the current attributes set for the notes object. Called when music is generated/played
+  - Function 7: export_notes()
+    - packages data in form read by the MusicJam module to be parsed and turned into music. Calls multiple helper functions within the class
 
-  - Function 2:  getDuration
-    - This function will return a ratio of the elapsed time between note selection approximated to the nearest set value 
 
-  - Function 3: addNote
-
-    - This function appends selected note to our initialized list along with time note was clicked so that calculation of speed and duration is possible
-
-- Function 4: getSpeed
-
-    - This function calculates and returns the total elapsed time from first to last note click 
-
-
-- Function 5: getNote
-
-    - Returns list of notes for label update in Music player interface
-
-- Function 6: clearNotes
-
-  - Clears the current attributes set for class from user input. Called when music is generated/played
-
-- Function 7: getData
-
-  - Packages data in form accepted by MusicJam.py module to be parsed and turned into music. This returns a list of notes, speed and duration.
-
-Module2 - Note generation
-
-- SetNote will assign note values to the object
-- GetNote will retrieve the note values from the object 
-- Duration will return a ratio of the elapsed time between note selection approximated to the nearest set value 
 # Sub-Packages2 - musicJam
 ## Module1 - music\_analyzor
 - ### Class Introduction
