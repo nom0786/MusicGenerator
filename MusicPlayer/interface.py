@@ -26,7 +26,7 @@ class MusicInterface(Frame):
 
     def initialize_interface(self, root):
         self.root.title('Music Player')
-        self.root.geometry('800x400')
+        self.root.geometry('720x350')
         self.root.configure(background='white')
         
         #set weights to main frame
