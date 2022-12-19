@@ -38,14 +38,14 @@ class notes:
         else:
             return '2/1'
            
-    #takes in the display note argument aswell (for the note display section) and set it to the emptied notelist when reset (generate)
     def clear_notes(self):
         self.notes.clear()
         self.times.clear()
         
     def export_notes(self):
+        notes = self.notes
         duration = self.convert_duration(self.calculate_duration(self.times))
         speed = self.calculate_speed(self.times)
-        return [self.notes, duration, speed]
+        return [notes, duration, speed]
 
 
