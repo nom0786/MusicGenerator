@@ -3,7 +3,7 @@ import numpy as np
 import random
 
 class MusicAnalyzor:
-    def __init__(self, note_object, num_bars, bpm=75):
+    def __init__(self, note_object, num_bars=4, bpm=75):
         self.note_num = {
             '0':['C'], '1':['C#','Db'], '2':['D'], '3':['D#','Eb'], '4':['E'],
             '5':['F'], '6':['F#','Gb'],
