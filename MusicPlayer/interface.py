@@ -117,8 +117,7 @@ class MusicInterface(Frame):
                 sound.play()
                 #reset condition
                 self.music_file = 'none'
-                run_scheduled_task()
-                
+                run_scheduled_task()   
             else:
                 #in case user clicks notes then play... prompt popup
                 # notes_disp.set(" ")
@@ -179,9 +178,8 @@ class MusicInterface(Frame):
         btn_B.grid(row = 0, column = 6, padx = 5, pady = 5)
             
 
-
 def run_interface():
     root = Tk()
     MusicInterface(root)
     root.mainloop()
-
+    

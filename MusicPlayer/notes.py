@@ -37,7 +37,7 @@ class notes:
             return '1/2'
         else:
             return '2/1'
-           
+            
     def clear_notes(self):
         self.notes.clear()
         self.times.clear()
@@ -47,5 +47,4 @@ class notes:
         duration = self.convert_duration(self.calculate_duration(self.times))
         speed = self.calculate_speed(self.times)
         return [notes, duration, speed]
-
 
