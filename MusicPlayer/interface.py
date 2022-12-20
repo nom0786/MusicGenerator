@@ -10,7 +10,7 @@ from MusicJam.music_generator import *
 
 #Global objects
 n = notes()
-# root = Tk()
+root = Tk()
 
 class MusicInterface(Frame):
     def __init__(self, root):
@@ -125,6 +125,7 @@ class MusicInterface(Frame):
                 popup("Cannot play! No music was generated.")
 
 
+
         main_frame = Frame(root, bg = color, bd = 20, relief = RIDGE)
         main_frame.grid()
         main_frame.columnconfigure(0, weight=1)
@@ -176,7 +177,10 @@ class MusicInterface(Frame):
 
         btn_B = Button(lower_frame, bd = 4, width = 3, height = 7, text = "B", bg = "white", fg = "black", font = ('ariel', 18, 'bold'), command = value_B)
         btn_B.grid(row = 0, column = 6, padx = 5, pady = 5)
+
             
+def destroy1():
+    root.destroy()
 
 def run_interface():
     root = Tk()
