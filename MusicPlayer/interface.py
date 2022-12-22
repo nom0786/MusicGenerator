@@ -3,6 +3,7 @@ from tkinter import messagebox
 from threading import Timer
 import pygame
 import time
+import os
 
 
 from MusicPlayer.notes import *
@@ -10,7 +11,6 @@ from MusicJam.music_generator import *
 
 #Global objects
 n = notes()
-root = Tk()
 
 class MusicInterface(Frame):
     def __init__(self, root):
@@ -18,7 +18,7 @@ class MusicInterface(Frame):
         self.root = root
         self.initialize_interface(self.root)
 
-    def check_notes_status(notes):
+    def check_notes(notes):
         if (len(notes) == 3):
             return True
         else:
@@ -38,51 +38,74 @@ class MusicInterface(Frame):
         
         #intitially set the music file to none, generate() will update file. Might have to use global command in function
         self.music_file = 'none'
+        self.playing_state = False
+        
+        #for the scheduled task. scheduled task will always run, but function depends on is_clicked condition
+        self.is_clicked = True
         color = "light gray"
         notes_disp = StringVar()
         
         #piano keys
         def value_C():
+            self.is_clicked = True
+            check_sound()
             notes_disp.set(n.generate_note("C", time.time()))
             sound = pygame.mixer.Sound("MusicPlayer/notes/C.wav")
             sound.play()
             
         def value_D():
+            self.is_clicked = True
+            check_sound()           
             notes_disp.set(n.generate_note("D", time.time()))
             sound = pygame.mixer.Sound("MusicPlayer/notes/D.wav")
             sound.play()
             
         def value_E():
+            self.is_clicked = True
+            check_sound()
             notes_disp.set(n.generate_note("E", time.time()))
             sound = pygame.mixer.Sound("MusicPlayer/notes/E.wav")
             sound.play()
             
         def value_F():
+            self.is_clicked = True
+            check_sound()
             notes_disp.set(n.generate_note("F", time.time()))
             sound = pygame.mixer.Sound("MusicPlayer/notes/F.wav")
             sound.play()
             
         def value_G():
+            self.is_clicked = True
+            check_sound()
             notes_disp.set(n.generate_note("G", time.time()))
             sound = pygame.mixer.Sound("MusicPlayer/notes/G.wav")
             sound.play()
             
         def value_A():
+            self.is_clicked = True
+            check_sound()
             notes_disp.set(n.generate_note("A", time.time()))
             sound = pygame.mixer.Sound("MusicPlayer/notes/A.wav")
             sound.play()
             
         def value_B():
+            self.is_clicked = True
+            check_sound()
             notes_disp.set(n.generate_note("B", time.time()))
             sound = pygame.mixer.Sound("MusicPlayer/notes/B.wav")
             sound.play()
 
         def scheduled_task():
-            notes_disp.set(" ")
-            n.clear_notes()
+            if self.is_clicked:
+                self.is_clicked = False
+                return None
+            else:
+                notes_disp.set(" ")
+                n.clear_notes()
 
         def run_scheduled_task():
-            timer = Timer(5, scheduled_task)
+            notes_disp.set("playing...")
+            timer = Timer(14, scheduled_task)
             timer.start()
             
         def popup(msg):
@@ -93,38 +116,46 @@ class MusicInterface(Frame):
                 return True
             else:
                 return False
+
+        #chck whether music is playing
+        def  check_sound():
+            if self.playing_state == True:
+                pygame.mixer.music.stop()
              
         def generate():
-#           jam = musicjam.MusicGenerator()
-#           jam.generateMusic()
 
-            #checking to see whether or not 3 notes were selected before user can click generate
+            #checking to see whether or not 3 notes were selected before user can proceed to music generation
             if (check_notes_status(n.get_notes())):
     
+                #generate the music by passing selected notes to MusicGenerator function
                 # tmp = MusicGenerator(n.export_notes(),num_bars = 4,bpm=66)
-                # file = tmp.mix_melody_chords()[0]
+                # tmp.mix_melody_chords()[0]
 
-                self.music_file = 'MusicPlayer/notes/C.wav'
+                self.music_file = 'file.mid'
                 n.clear_notes()
                 notes_disp.set("Done. Click play!")
+                self.generate_status = True
             else:
                 popup("Cannot generate! Select a total of 3 keys.")
 
         def play():
-            if self.music_file != 'none':
-                notes_disp.set("playing...")
-                sound = pygame.mixer.Sound(self.music_file)
-                sound.play()
-                #reset condition
+            try:
+                if self.music_file != 'none':
+                    pygame.mixer.music.load(self.music_file)
+                    pygame.mixer.music.play()
+                    self.playing_state = True
+
+                    #doesnt get called if file crashes as this part of code is never reached
+                    self.music_file = 'none'
+                    run_scheduled_task()   
+                else:
+                    popup("Cannot play! No music was generated.")
+
+            except Exception as err:
+                print(f"Unexpected {err=}, {type(err)=}")
                 self.music_file = 'none'
-                run_scheduled_task()   
-            else:
-                #in case user clicks notes then play... prompt popup
-                # notes_disp.set(" ")
-                # n.clear_notes()
-                popup("Cannot play! No music was generated.")
-
-
+                run_scheduled_task() 
+                raise
 
         main_frame = Frame(root, bg = color, bd = 20, relief = RIDGE)
         main_frame.grid()
@@ -178,9 +209,6 @@ class MusicInterface(Frame):
         btn_B = Button(lower_frame, bd = 4, width = 3, height = 7, text = "B", bg = "white", fg = "black", font = ('ariel', 18, 'bold'), command = value_B)
         btn_B.grid(row = 0, column = 6, padx = 5, pady = 5)
 
-            
-def destroy1():
-    root.destroy()
 
 def run_interface():
     root = Tk()

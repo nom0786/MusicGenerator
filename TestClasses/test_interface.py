@@ -14,10 +14,10 @@ class TestInterface(unittest.TestCase):
     def setUp(self):
         self.m1 = MusicInterface
 
-    def test_check_notes_status(self): 
-        self.assertEqual(self.m1.check_notes_status(['A', 'B', 'C']), True)
-        self.assertEqual(self.m1.check_notes_status(['C', 'C']), False)
-        self.assertEqual(self.m1.check_notes_status(['B', 'E', 'D']), True)
-        self.assertEqual(self.m1.check_notes_status([]), False)
+    def test_check_notes(self): 
+        self.assertEqual(self.m1.check_notes(['A', 'B', 'C']), True)
+        self.assertEqual(self.m1.check_notes(['C', 'C']), False)
+        self.assertEqual(self.m1.check_notes(['B', 'E', 'D']), True)
+        self.assertEqual(self.m1.check_notes([]), False)
 
 unittest.main(argv=[''], verbosity=2, exit=False)
