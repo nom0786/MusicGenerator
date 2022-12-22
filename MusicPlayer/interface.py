@@ -127,9 +127,9 @@ class MusicInterface(Frame):
                 #checking to see whether or not 3 notes were selected before user can proceed to music generation
                 if (check_notes_status(n.get_notes())):
         
-                    #generate the music by passing selected notes to MusicGenerator function
-                    # tmp = MusicGenerator(n.export_notes(),num_bars = 4,bpm=66)
-                    # tmp.mix_melody_chords()[0]
+                    #generate the music by passing the user selected notes to MusicGenerator function
+                    tmp = MusicGenerator(n.export_notes(),num_bars = 4,bpm=66)
+                    tmp.mix_melody_chords()[0]
 
                     self.music_file = 'file.mid'
                     n.clear_notes()
