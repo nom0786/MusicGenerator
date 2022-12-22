@@ -20,4 +20,8 @@ class TestInterface(unittest.TestCase):
         self.assertEqual(self.m1.check_notes(['B', 'E', 'D']), True)
         self.assertEqual(self.m1.check_notes([]), False)
 
+    @classmethod
+    def tearDownClass(self):
+        print("successful")
+
 unittest.main(argv=[''], verbosity=2, exit=False)

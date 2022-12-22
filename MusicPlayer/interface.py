@@ -123,20 +123,24 @@ class MusicInterface(Frame):
                 pygame.mixer.music.stop()
              
         def generate():
+            try:
+                #checking to see whether or not 3 notes were selected before user can proceed to music generation
+                if (check_notes_status(n.get_notes())):
+        
+                    #generate the music by passing selected notes to MusicGenerator function
+                    # tmp = MusicGenerator(n.export_notes(),num_bars = 4,bpm=66)
+                    # tmp.mix_melody_chords()[0]
 
-            #checking to see whether or not 3 notes were selected before user can proceed to music generation
-            if (check_notes_status(n.get_notes())):
-    
-                #generate the music by passing selected notes to MusicGenerator function
-                # tmp = MusicGenerator(n.export_notes(),num_bars = 4,bpm=66)
-                # tmp.mix_melody_chords()[0]
-
-                self.music_file = 'file.mid'
-                n.clear_notes()
-                notes_disp.set("Done. Click play!")
-                self.generate_status = True
-            else:
-                popup("Cannot generate! Select a total of 3 keys.")
+                    self.music_file = 'file.mid'
+                    n.clear_notes()
+                    notes_disp.set("Done. Click play!")
+                    self.generate_status = True
+                else:
+                    popup("Cannot generate! Select a total of 3 keys.")
+                    
+            except Exception as err:
+                print(f"Unexpected {err=}, {type(err)=}")
+                raise
 
         def play():
             try:
