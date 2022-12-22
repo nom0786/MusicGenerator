@@ -1,0 +1,15 @@
+language: python
+python:
+  - "3.9.12"
+#setup and install packages
+before_install:
+  - python --version
+  - pip install -U pip
+  - pip install -U pytest
+  - pip install codecov
+# command to run tests
+script:
+  - python test_suite.py
+#submit code coverage
+after_success:
+  - codecov
