@@ -4,6 +4,7 @@ python:
 #setup and install packages
 before_install:
   - python --version
+  - pip install pygame
   - pip install -U pip
   - pip install -U pytest
   - pip install codecov
