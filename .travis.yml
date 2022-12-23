@@ -5,6 +5,7 @@ python:
 before_install:
   - python --version
   - pip install pygame
+  - pip install music21
   - pip install -U pip
   - pip install -U pytest
   - pip install codecov
