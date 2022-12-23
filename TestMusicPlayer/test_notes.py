@@ -6,6 +6,7 @@ current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current) 
 sys.path.append(parent)
 
+
 from MusicPlayer.notes import notes as n
 
 class TestNotes(unittest.TestCase):

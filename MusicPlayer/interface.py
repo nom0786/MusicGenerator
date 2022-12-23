@@ -3,8 +3,6 @@ from tkinter import messagebox
 from threading import Timer
 import pygame
 import time
-import os
-
 
 from MusicPlayer.notes import *
 from MusicJam.music_generator import *
