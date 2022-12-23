@@ -1,6 +1,9 @@
 # DATA533 - Project Doc
+[![Build Status](https://app.travis-ci.com/nom0786/MusicGenerator.svg?branch=main)](https://app.travis-ci.com/nom0786/MusicGenerator)
+
 Noman Mohammad & Nyx Zhang
 # Introduce
+
 - ### Music Player - Noman
   - Users can randomly choose three notes of their choice 
   - The notes will be sent to the music generator to be parsed into playable music 

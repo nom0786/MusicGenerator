@@ -6,7 +6,6 @@ current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current) 
 sys.path.append(parent)
 
-
 from MusicPlayer.notes import notes as n
 
 class TestNotes(unittest.TestCase):
@@ -54,7 +53,6 @@ class TestNotes(unittest.TestCase):
         self.assertEqual(self.n4.export_notes(), [['E', 'C', 'C'], '2/1', 17])
         self.assertEqual(self.n5.export_notes(), [['D', 'E', 'F'], '1/1', 4])
         self.assertEqual(self.n6.export_notes(), [['B', 'B', 'B'], '1/1', 4])
-
 
     @classmethod
     def tearDownClass(self):
