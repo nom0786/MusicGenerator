@@ -6,7 +6,7 @@ current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current) 
 sys.path.append(parent)
 
-from MusicPlayer.interface import *
+from MusicPlayer.interface import MusicInterface
 
 class TestInterface(unittest.TestCase):
 
