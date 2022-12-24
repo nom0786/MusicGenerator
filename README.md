@@ -4,6 +4,10 @@
 Noman Mohammad & Nyx Zhang
 # Introduce
 
+- pypi: https://pypi.org/project/MusicGenerator/0.1
+- presentation: https://youtu.be/oEG8zVlS5q4
+
+
 - ### Music Player - Noman
   - Users can randomly choose three notes of their choice 
   - The notes will be sent to the music generator to be parsed into playable music 
